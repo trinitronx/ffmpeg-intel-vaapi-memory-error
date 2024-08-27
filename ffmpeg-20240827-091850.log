@@ -1,0 +1,974 @@
+ffmpeg started on 2024-08-27 at 09:18:50
+Report written to "ffmpeg-20240827-091850.log"
+Log level: 48
+Command line:
+ffmpeg -report -nostdin -v debug -threads 1 -init_hw_device "vaapi=intel0:/dev/dri/renderD128" -hwaccel vaapi -hwaccel_output_format vaapi -hwaccel_device intel0 -i /home/trinitronx/src/pub/vaapi-tests/transpose_vaapi/whitenoise-test-input-720x405.amd0.h264.mp4 -map 0:0 -c:v h264_vaapi -global_quality 25 -profile:v:0 main -vf "format=nv12|vaapi,hwupload,transpose_vaapi=clock" -map 0:a -c:a copy -f mp4 -y /home/trinitronx/src/pub/vaapi-tests/transpose_vaapi/out.mp4
+ffmpeg version n7.0.2 Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 14.2.1 (GCC) 20240805
+  configuration: --prefix=/usr --disable-debug --disable-static --disable-stripping --enable-amf --enable-avisynth --enable-cuda-llvm --enable-lto --enable-fontconfig --enable-frei0r --enable-gmp --enable-gnutls --enable-gpl --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libdav1d --enable-libdrm --enable-libdvdnav --enable-libdvdread --enable-libfreetype --enable-libfribidi --enable-libgsm --enable-libharfbuzz --enable-libiec61883 --enable-libjack --enable-libjxl --enable-libmodplug --enable-libmp3lame --enable-libopencore_amrnb --enable-libopencore_amrwb --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libplacebo --enable-libpulse --enable-librav1e --enable-librsvg --enable-librubberband --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libtheora --enable-libv4l2 --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpl --enable-libvpx --enable-libwebp --enable-libx26  libavutil      59.  8.100 / 59.  8.100
+  libavcodec     61.  3.100 / 61.  3.100
+  libavformat    61.  1.100 / 61.  1.100
+  libavdevice    61.  1.100 / 61.  1.100
+  libavfilter    10.  1.100 / 10.  1.100
+  libswscale      8.  1.100 /  8.  1.100
+  libswresample   5.  1.100 /  5.  1.100
+  libpostproc    58.  1.100 / 58.  1.100
+Splitting the commandline.
+Reading option '-report' ... matched as option 'report' (generate a report) with argument '1'.
+Reading option '-nostdin' ... matched as option 'stdin' (enable or disable interaction on standard input) with argument 0.
+Reading option '-v' ... matched as option 'v' (set logging level) with argument 'debug'.
+Reading option '-threads' ... matched as AVOption 'threads' with argument '1'.
+Reading option '-init_hw_device' ... matched as option 'init_hw_device' (initialise hardware device) with argument 'vaapi=intel0:/dev/dri/renderD128'.
+Reading option '-hwaccel' ... matched as option 'hwaccel' (use HW accelerated decoding) with argument 'vaapi'.
+Reading option '-hwaccel_output_format' ... matched as option 'hwaccel_output_format' (select output format used with HW accelerated decoding) with argument 'vaapi'.
+Reading option '-hwaccel_device' ... matched as option 'hwaccel_device' (select a device for HW acceleration) with argument 'intel0'.
+Reading option '-i' ... matched as input url with argument '/home/trinitronx/src/pub/vaapi-tests/transpose_vaapi/whitenoise-test-input-720x405.amd0.h264.mp4'.
+Reading option '-map' ... matched as option 'map' (set input stream mapping) with argument '0:0'.
+Reading option '-c:v' ... matched as option 'c' (select encoder/decoder ('copy' to copy stream without reencoding)) with argument 'h264_vaapi'.
+Reading option '-global_quality' ... matched as AVOption 'global_quality' with argument '25'.
+Reading option '-profile:v:0' ... matched as option 'profile' (set profile) with argument 'main'.
+Reading option '-vf' ... matched as option 'vf' (alias for -filter:v (apply filters to video streams)) with argument 'format=nv12|vaapi,hwupload,transpose_vaapi=clock'.
+Reading option '-map' ... matched as option 'map' (set input stream mapping) with argument '0:a'.
+Reading option '-c:a' ... matched as option 'c' (select encoder/decoder ('copy' to copy stream without reencoding)) with argument 'copy'.
+Reading option '-f' ... matched as option 'f' (force container format (auto-detected otherwise)) with argument 'mp4'.
+Reading option '-y' ... matched as option 'y' (overwrite output files) with argument '1'.
+Reading option '/home/trinitronx/src/pub/vaapi-tests/transpose_vaapi/out.mp4' ... matched as output url.
+Finished splitting the commandline.
+Parsing a group of options: global .
+Applying option report (generate a report) with argument 1.
+Applying option nostdin (enable or disable interaction on standard input) with argument 0.
+Applying option v (set logging level) with argument debug.
+Applying option init_hw_device (initialise hardware device) with argument vaapi=intel0:/dev/dri/renderD128.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] libva: VA-API version 1.22.0
+[AVHWDeviceContext @ 0x5ca3d63d5f40] libva: Trying to open /usr/lib/dri/iHD_drv_video.so
+[AVHWDeviceContext @ 0x5ca3d63d5f40] libva: Found init function __vaDriverInit_1_21
+[AVHWDeviceContext @ 0x5ca3d63d5f40] libva: va_openDriver() returns 0
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Initialised VAAPI connection: version 1.22
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x41524742 -> bgra.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x42475241 -> argb.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x41424752 -> rgba.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x52474241 -> abgr.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x58524742 -> bgr0.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x42475258 -> 0rgb.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x58424752 -> rgb0.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x52474258 -> 0bgr.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x30335241 -> unknown.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x30334241 -> unknown.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x30335258 -> x2rgb10le.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x30334258 -> unknown.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x36314752 -> unknown.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x50424752 -> unknown.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x50524742 -> unknown.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x56555941 -> unknown.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x30303859 -> gray.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x3231564e -> nv12.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x3132564e -> unknown.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x32595559 -> yuyv422.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x59565955 -> uyvy422.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x32315659 -> yuv420p.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x30323449 -> yuv420p.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x50313134 -> yuv411p.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x48323234 -> yuv422p.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x56323234 -> yuv440p.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x50343434 -> yuv444p.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x33434d49 -> unknown.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Format 0x30313050 -> p010le.
+[AVHWDeviceContext @ 0x5ca3d63d5f40] VAAPI driver: Intel iHD driver for Intel(R) Gen Graphics - 24.2.5 ().
+[AVHWDeviceContext @ 0x5ca3d63d5f40] Driver not found in known nonstandard list, using standard behaviour.
+Applying option y (overwrite output files) with argument 1.
+Successfully parsed a group of options.
+Parsing a group of options: input url /home/trinitronx/src/pub/vaapi-tests/transpose_vaapi/whitenoise-test-input-720x405.amd0.h264.mp4.
+Applying option hwaccel (use HW accelerated decoding) with argument vaapi.
+Applying option hwaccel_output_format (select output format used with HW accelerated decoding) with argument vaapi.
+Applying option hwaccel_device (select a device for HW acceleration) with argument intel0.
+Successfully parsed a group of options.
+Opening an input file: /home/trinitronx/src/pub/vaapi-tests/transpose_vaapi/whitenoise-test-input-720x405.amd0.h264.mp4.
+[AVFormatContext @ 0x5ca3d63fb680] Opening '/home/trinitronx/src/pub/vaapi-tests/transpose_vaapi/whitenoise-test-input-720x405.amd0.h264.mp4' for reading
+[file @ 0x5ca3d641d3c0] Setting default whitelist 'file,crypto,data'
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d63fb680] Format mov,mp4,m4a,3gp,3g2,mj2 probed with size=2048 and score=100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d63fb680] ISO: File Type Major Brand: isom
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d63fb680] Unknown dref type 0x206c7275 size 12
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d63fb680] Processing st: 0, edit list 0 - media time: 512, duration: 243712
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d63fb680] Offset DTS by 512 to make first pts zero.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d63fb680] Setting codecpar->delay to 1 for stream st: 0
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d63fb680] Unknown dref type 0x206c7275 size 12
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d63fb680] Processing st: 1, edit list 0 - media time: 256, duration: 915168
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d63fb680] skip 256 audio samples from curr_cts: 0
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d63fb680] Before avformat_find_stream_info() pos: 67530872 bytes read:45164 seeks:1 nb_streams:2
+[h264 @ 0x5ca3d641ed80] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x5ca3d641ed80] Decoding VUI
+[h264 @ 0x5ca3d641ed80] nal_unit_type: 8(PPS), nal_ref_idc: 3
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 128, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_sr_asm_float_avx2 - type: fft_float, len: 64, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 256, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_sr_asm_float_avx2 - type: fft_float, len: 128, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+[h264 @ 0x5ca3d641ed80] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x5ca3d641ed80] Decoding VUI
+[h264 @ 0x5ca3d641ed80] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x5ca3d641ed80] Decoding VUI
+[h264 @ 0x5ca3d641ed80] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d641ed80] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x5ca3d641ed80] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x5ca3d641ed80] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x5ca3d641ed80] Decoding VUI
+[h264 @ 0x5ca3d641ed80] Format yuv420p chosen by get_format().
+[h264 @ 0x5ca3d641ed80] Reinit context to 720x416, pix_fmt: yuv420p
+[h264 @ 0x5ca3d641ed80] no picture 
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d63fb680] demuxer injecting skip 256 / discard 0
+[ac3 @ 0x5ca3d64205c0] skip 256 / discard 0 samples due to side data
+[ac3 @ 0x5ca3d64205c0] skip 256/1536 samples
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d63fb680] All info found
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d63fb680] After avformat_find_stream_info() pos: 365012 bytes read:442508 seeks:2 frames:3
+Selecting decoder 'h264' because of requested hwaccel method vaapi
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/trinitronx/src/pub/vaapi-tests/transpose_vaapi/whitenoise-test-input-720x405.amd0.h264.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomdby1iso2avc1mp41
+    encoder         : Lavf61.1.100
+  Duration: 00:00:19.07, start: 0.000000, bitrate: 28335 kb/s
+  Stream #0:0[0x1](und), 2, 1/12800: Video: h264 (Main), 1 reference frame (avc1 / 0x31637661), yuv420p(progressive, left), 720x405, 0/1, 28272 kb/s, 25 fps, 25 tbr, 12800 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.3.100 h264_vaapi
+  Stream #0:1[0x2](und), 1, 1/48000: Audio: ac3 (ac-3 / 0x332D6361), 48000 Hz, mono, fltp, 96 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+      Side data:
+        audio service type: main
+Successfully opened the file.
+Parsing a group of options: output url /home/trinitronx/src/pub/vaapi-tests/transpose_vaapi/out.mp4.
+Applying option map (set input stream mapping) with argument 0:0.
+Applying option c:v (select encoder/decoder ('copy' to copy stream without reencoding)) with argument h264_vaapi.
+Applying option profile:v:0 (set profile) with argument main.
+Applying option vf (alias for -filter:v (apply filters to video streams)) with argument format=nv12|vaapi,hwupload,transpose_vaapi=clock.
+Applying option map (set input stream mapping) with argument 0:a.
+Applying option c:a (select encoder/decoder ('copy' to copy stream without reencoding)) with argument copy.
+Applying option f (force container format (auto-detected otherwise)) with argument mp4.
+Successfully parsed a group of options.
+Opening an output file: /home/trinitronx/src/pub/vaapi-tests/transpose_vaapi/out.mp4.
+[out#0/mp4 @ 0x5ca3d654f9c0] Adding streams from explicit maps...
+[vost#0:0/h264_vaapi @ 0x5ca3d6462d80] Created video stream from input stream 0:0
+[AVFilterGraph @ 0x5ca3d642ee80] Setting 'pix_fmts' to value 'nv12|vaapi'
+[AVFilterGraph @ 0x5ca3d642ee80] Setting 'dir' to value 'clock'
+[h264 @ 0x5ca3d6463040] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x5ca3d6463040] Decoding VUI
+[h264 @ 0x5ca3d6463040] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[aost#0:1/copy @ 0x5ca3d6425900] Created audio stream from input stream 0:1
+[file @ 0x5ca3d6464300] Setting default whitelist 'file,crypto,data'
+Successfully opened the file.
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> h264 (h264_vaapi))
+  Stream #0:1 -> #0:1 (copy)
+[vost#0:0/h264_vaapi @ 0x5ca3d6462d80] Starting thread...
+[vf#0:0 @ 0x5ca3d641f140] Starting thread...
+[vist#0:0/h264 @ 0x5ca3d6420400] [dec:h264 @ 0x5ca3d6460fc0] Starting thread...
+[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d641d200] Starting thread...
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x5ca3d6463040] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x5ca3d6463040] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x5ca3d6463040] Decoding VUI
+[h264 @ 0x5ca3d6463040] Format vaapi chosen by get_format().
+[h264 @ 0x5ca3d6463040] Format vaapi requires hwaccel h264_vaapi initialisation.
+[h264 @ 0x5ca3d6463040] Considering format 0x3231564e -> nv12.
+[h264 @ 0x5ca3d6463040] Picked nv12 (0x3231564e) as best match for yuv420p.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0.
+[AVHWFramesContext @ 0x73e7340a2e00] Direct mapping possible.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x1.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x2.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x3.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x4.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x5.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x6.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x7.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x8.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x9.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0xa.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0xb.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0xc.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0xd.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0xe.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0xf.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x10.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x11.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x12.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x13.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x14.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x15.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x16.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x17.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x18.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x19.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x1a.
+[AVHWFramesContext @ 0x73e7340a2e00] Created surface 0x1b.
+[h264 @ 0x5ca3d6463040] Decode context initialised: 0/0x10000000.
+[h264 @ 0x5ca3d6463040] Reinit context to 720x416, pix_fmt: vaapi
+[h264 @ 0x5ca3d6463040] no picture 
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x1.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (186928 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x1b.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 2
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x1.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (177208 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x1a.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 0
+[AVFilterGraph @ 0x73e73c001040] Setting 'pix_fmts' to value 'nv12|vaapi'
+[AVFilterGraph @ 0x73e73c001040] Setting 'dir' to value 'clock'
+detected 8 logical cores
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x1.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (122538 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x19.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[graph 0 input from stream 0:0 @ 0x73e73c0039c0] Setting 'video_size' to value '720x405'
+[graph 0 input from stream 0:0 @ 0x73e73c0039c0] Setting 'pix_fmt' to value '44'
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 0
+[graph 0 input from stream 0:0 @ 0x73e73c0039c0] Setting 'time_base' to value '1/12800'
+[graph 0 input from stream 0:0 @ 0x73e73c0039c0] Setting 'pixel_aspect' to value '0/1'
+[graph 0 input from stream 0:0 @ 0x73e73c0039c0] Setting 'colorspace' to value '2'
+[graph 0 input from stream 0:0 @ 0x73e73c0039c0] Setting 'range' to value '0'
+[graph 0 input from stream 0:0 @ 0x73e73c0039c0] Setting 'frame_rate' to value '25/1'
+[graph 0 input from stream 0:0 @ 0x73e73c0039c0] w:720 h:405 pixfmt:vaapi tb:1/12800 fr:25/1 sar:0/1 csp:unknown range:unknown
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x2.
+[format @ 0x73e73c004340] Setting 'pix_fmts' to value 'vaapi'
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x1.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (122385 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x18.
+[AVFilterGraph @ 0x73e73c001040] query_formats: 6 queried, 15 merged, 0 already done, 0 delayed
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] swap width and height for clock/cclock rotation
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[AVHWFramesContext @ 0x73e73c004f40] Created surface 0x1c.
+[AVHWFramesContext @ 0x73e73c004f40] Direct mapping possible.
+[AVHWFramesContext @ 0x73e73c004f40] Created surface 0x1d.
+[AVHWFramesContext @ 0x73e73c004f40] Created surface 0x1e.
+[AVHWFramesContext @ 0x73e73c004f40] Created surface 0x1f.
+[AVHWFramesContext @ 0x73e73c004f40] Created surface 0x20.
+[AVHWFramesContext @ 0x73e73c004f40] Created surface 0x21.
+[AVHWFramesContext @ 0x73e73c004f40] Created surface 0x22.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 2
+[AVHWFramesContext @ 0x73e73c004f40] Created surface 0x23.
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x1.
+[AVHWFramesContext @ 0x73e73c004f40] Created surface 0x24.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x2.
+[AVHWFramesContext @ 0x73e73c004f40] Created surface 0x25.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (177370 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x17.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x1.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (122422 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x16.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x1.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (122524 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x15.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 2
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x1.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (177331 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x14.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x1.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (122571 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x13.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x1.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (122520 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x12.
+[graph 0 input from stream 0:0 @ 0x73e73c0039c0] video frame properties congruent with link at pts_time: 0
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter input: vaapi, 720x405 (0).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter frame from surface 0x1b to 0x25.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Pipeline parameter buffer is 0x4.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 2
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x1.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (177322 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x11.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter output: vaapi, 405x720 (0).
+[h264_vaapi @ 0x5ca3d64205c0] Using input frames context (format vaapi) with h264_vaapi encoder.
+[h264_vaapi @ 0x5ca3d64205c0] Input surface format is nv12.
+[h264_vaapi @ 0x5ca3d64205c0] Using VAAPI profile VAProfileH264Main (6).
+[h264_vaapi @ 0x5ca3d64205c0] Using VAAPI entrypoint VAEntrypointEncSlice (6).
+[h264_vaapi @ 0x5ca3d64205c0] Using VAAPI render target format YUV420 (0x1).
+[h264_vaapi @ 0x5ca3d64205c0] Driver supports RC modes CQP, CBR, VBR, ICQ, QVBR, AVBR.
+[h264_vaapi @ 0x5ca3d64205c0] RC mode: ICQ.
+[h264_vaapi @ 0x5ca3d64205c0] Block Level bitrate control: OFF.
+[h264_vaapi @ 0x5ca3d64205c0] RC quality: 25.
+[h264_vaapi @ 0x5ca3d64205c0] RC framerate: 25/1 (25.00 fps).
+[h264_vaapi @ 0x5ca3d64205c0] Driver does not report any additional prediction constraints.
+[h264_vaapi @ 0x5ca3d64205c0] Using intra, P- and B-frames (supported references: 8 / 2).
+[h264_vaapi @ 0x5ca3d64205c0] All wanted packed headers available (wanted 0xd, found 0x1f).
+[h264_vaapi @ 0x5ca3d64205c0] Using nv12 as format of reconstructed frames.
+[AVHWFramesContext @ 0x73e73c201e80] Created surface 0x26.
+[AVHWFramesContext @ 0x73e73c201e80] Direct mapping possible.
+[h264_vaapi @ 0x5ca3d64205c0] Using level 3.
+[mp4 @ 0x5ca3d6462380] track 1: codec frame size is not set
+Output #0, mp4, to '/home/trinitronx/src/pub/vaapi-tests/transpose_vaapi/out.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomdby1iso2avc1mp41
+    encoder         : Lavf61.1.100
+  Stream #0:0(und), 0, 1/12800: Video: h264 (Main), 1 reference frame (avc1 / 0x31637661), vaapi(progressive, left), 405x720, 0/1, q=2-31, 25 fps, 12800 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.3.100 h264_vaapi
+  Stream #0:1(und), 0, 1/48000: Audio: ac3 (ac-3 / 0x332D6361), 48000 Hz, mono, fltp, 96 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+      Side data:
+        audio service type: main
+[out#0/mp4 @ 0x5ca3d654f9c0] Starting thread...
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter input: vaapi, 720x405 (512).
+[h264_vaapi @ 0x5ca3d64205c0] Input frame: 405x720 (0).
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 0
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[h264_vaapi @ 0x5ca3d64205c0] Pick nothing to encode next - need more input for timestamps.
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x3.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x2.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter frame from surface 0x19 to 0x24.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x1.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Pipeline parameter buffer is 0.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (122503 bytes) is 0x4.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x1b.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter output: vaapi, 405x720 (512).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter input: vaapi, 720x405 (1024).
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264_vaapi @ 0x5ca3d64205c0] Input frame: 405x720 (1).
+[h264_vaapi @ 0x5ca3d64205c0] Pick forced IDR-picture to encode next.
+[h264_vaapi @ 0x5ca3d64205c0] Issuing encode for pic 0/0 as type IDR.
+[h264_vaapi @ 0x5ca3d64205c0] No reference pictures.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 0
+[h264_vaapi @ 0x5ca3d64205c0] Input surface is 0x25.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0.
+[h264_vaapi @ 0x5ca3d64205c0] Recon surface is 0x26.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x4.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter frame from surface 0x18 to 0x23.
+[h264_vaapi @ 0x5ca3d64205c0] Allocated output buffer 0x1
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x2.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Pipeline parameter buffer is 0x3.
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer is 0x1.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (122528 bytes) is 0x5.
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (22) is 0x6.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x19.
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (27) is 0x7.
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (27) is 0x8.
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (23) is 0x9.
+[h264_vaapi @ 0x5ca3d64205c0] Packed header buffer (1) is 0xa/0xb (296 bits).
+[h264_vaapi @ 0x5ca3d64205c0] Packed header buffer (4) is 0xc/0xd (872 bits).
+[h264_vaapi @ 0x5ca3d64205c0] Slice 0: 0-44 (45 rows), 0-1169 (1170 blocks).
+[h264_vaapi @ 0x5ca3d64205c0] Packed header buffer (3) is 0xe/0xf (72 bits).
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (24) is 0x10.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter output: vaapi, 405x720 (1024).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter input: vaapi, 720x405 (1536).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter frame from surface 0x1a to 0x22.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Pipeline parameter buffer is 0x5.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 2
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x4.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (177346 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x18.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter output: vaapi, 405x720 (1536).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter input: vaapi, 720x405 (2048).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter frame from surface 0x16 to 0x21.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Pipeline parameter buffer is 0x5.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x4.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (122287 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x1a.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter output: vaapi, 405x720 (2048).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter input: vaapi, 720x405 (2560).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter frame from surface 0x15 to 0x20.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Pipeline parameter buffer is 0x2.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x4.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (122603 bytes) is 0x5.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x16.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter output: vaapi, 405x720 (2560).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter input: vaapi, 720x405 (3072).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter frame from surface 0x17 to 0x1f.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Pipeline parameter buffer is 0x5.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 2
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x4.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (177198 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x15.
+[h264_vaapi @ 0x5ca3d64205c0] Input frame: 405x720 (2).
+[h264_vaapi @ 0x5ca3d64205c0] Pick nothing to encode next - need more input for reference pictures.
+[h264_vaapi @ 0x5ca3d64205c0] Input frame: 405x720 (3).
+[h264_vaapi @ 0x5ca3d64205c0] Pick normal P-picture to encode next.
+[h264_vaapi @ 0x5ca3d64205c0] Issuing encode for pic 3/1 as type P.
+[h264_vaapi @ 0x5ca3d64205c0] L0 refers to 0/0.
+[h264_vaapi @ 0x5ca3d64205c0] Input surface is 0x22.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter output: vaapi, 405x720 (3072).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter input: vaapi, 720x405 (3584).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[AVHWFramesContext @ 0x73e73c201e80] Created surface 0x27.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter frame from surface 0x13 to 0x1e.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Pipeline parameter buffer is 0x2.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 0
+[h264_vaapi @ 0x5ca3d64205c0] Recon surface is 0x27.
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x4.
+[h264_vaapi @ 0x5ca3d64205c0] Allocated output buffer 0
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x5.
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer is 0.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (122546 bytes) is 0x10.
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (23) is 0xf.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x17.
+[h264_vaapi @ 0x5ca3d64205c0] Slice 0: 0-44 (45 rows), 0-1169 (1170 blocks).
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList0 for fn=1/poc=3:  fn=0/poc=0
+[h264_vaapi @ 0x5ca3d64205c0] Packed header buffer (3) is 0xe/0xd (72 bits).
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (24) is 0xc.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter output: vaapi, 405x720 (3584).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter input: vaapi, 720x405 (4096).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter frame from surface 0x12 to 0x1d.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Pipeline parameter buffer is 0x2.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x10.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x5.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (122490 bytes) is 0x4.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x13.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter output: vaapi, 405x720 (4096).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter input: vaapi, 720x405 (4608).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Mapped colour properties unknown unknown/unknown/unknown left to VA standard 13 chroma siting 0x6 range 0.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter frame from surface 0x14 to 0x1c.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Pipeline parameter buffer is 0x4.
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 2
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x5.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x10.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (177279 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x12.
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter output: vaapi, 405x720 (4608).
+[Parsed_transpose_vaapi_2 @ 0x73e73c003140] Filter input: vaapi, 720x405 (5120).
+[vf#0:0 @ 0x5ca3d641f140] Error while filtering: Cannot allocate memory
+[h264 @ 0x5ca3d6463040] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 0
+[h264 @ 0x5ca3d6463040] Param buffer (type 0, 672 bytes) is 0x2.
+[h264 @ 0x5ca3d6463040] Param buffer (type 1, 240 bytes) is 0x10.
+[h264 @ 0x5ca3d6463040] Slice 0 param buffer (3128 bytes) is 0x5.
+[h264 @ 0x5ca3d6463040] Slice 0 data buffer (122335 bytes) is 0x3.
+[h264 @ 0x5ca3d6463040] Decode to surface 0x1b.
+[h264_vaapi @ 0x5ca3d64205c0] Sync to pic 0/0 (input surface 0x25).
+[vf#0:0 @ 0x5ca3d641f140] Task finished with error code: -12 (Cannot allocate memory)
+[vf#0:0 @ 0x5ca3d641f140] Terminating thread with return code -12 (Cannot allocate memory)
+[vist#0:0/h264 @ 0x5ca3d6420400] [dec:h264 @ 0x5ca3d6460fc0] Decoder returned EOF, finishing
+[vist#0:0/h264 @ 0x5ca3d6420400] [dec:h264 @ 0x5ca3d6460fc0] Terminating thread with return code 0 (success)
+[vist#0:0/h264 @ 0x5ca3d6420400] All consumers of this stream are done
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer: 181482 bytes (status 01000018).
+[h264_vaapi @ 0x5ca3d64205c0] Output read for pic 0/0.
+[h264_vaapi @ 0x5ca3d64205c0] Output packet: pts 0, dts -1, size 181482 bytes.
+[h264_vaapi @ 0x5ca3d64205c0] Input frame: 405x720 (4).
+[h264_vaapi @ 0x5ca3d64205c0] Pick B-picture at depth 1 to encode next.
+[h264_vaapi @ 0x5ca3d64205c0] Issuing encode for pic 1/2 as type B.
+[h264_vaapi @ 0x5ca3d64205c0] L0 refers to[h264_vaapi @ 0x5ca3d64205c0]  0/0[h264_vaapi @ 0x5ca3d64205c0] .
+[h264_vaapi @ 0x5ca3d64205c0] L1 refers to 3/1[h264_vaapi @ 0x5ca3d64205c0] .
+[h264_vaapi @ 0x5ca3d64205c0] Input surface is 0x24.
+[AVHWFramesContext @ 0x73e73c201e80] Created surface 0x28.
+[h264_vaapi @ 0x5ca3d64205c0] Recon surface is 0x28.
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer is 0x1.
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (23) is 0x3.
+[h264_vaapi @ 0x5ca3d64205c0] Slice 0: 0-44 (45 rows), 0-1169 (1170 blocks).
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList0 for fn=2/poc=1:  fn=0/poc=0  fn=1/poc=3
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList1 for fn=2/poc=1:  fn=1/poc=3  fn=0/poc=0
+[h264_vaapi @ 0x5ca3d64205c0] Packed header buffer (3) is 0x5/0x10 (72 bits).
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (24) is 0x2.
+[h264_vaapi @ 0x5ca3d64205c0] Sync to pic 3/1 (input surface 0x22).
+[h264 @ 0x5ca3d654a5c0] Decoding VUI
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer: 130522 bytes (status 0100001d).
+[h264_vaapi @ 0x5ca3d64205c0] Output read for pic 3/1.
+[h264_vaapi @ 0x5ca3d64205c0] Output packet: pts 3, dts 0, size 130522 bytes.
+[h264_vaapi @ 0x5ca3d64205c0] Input frame: 405x720 (5).
+[h264_vaapi @ 0x5ca3d64205c0] Pick B-picture at depth 1 to encode next.
+[h264_vaapi @ 0x5ca3d64205c0] Issuing encode for pic 2/3 as type B.
+[h264_vaapi @ 0x5ca3d64205c0] L0 refers to 0/0[h264_vaapi @ 0x5ca3d64205c0] .
+[h264_vaapi @ 0x5ca3d64205c0] L1 refers to[h264_vaapi @ 0x5ca3d64205c0]  3/1.
+[h264_vaapi @ 0x5ca3d64205c0] Input surface is 0x23.
+[AVHWFramesContext @ 0x73e73c201e80] Created surface 0x29.
+[h264_vaapi @ 0x5ca3d64205c0] Recon surface is 0x29.
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer is 0.
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (23) is 0x2.
+[h264_vaapi @ 0x5ca3d64205c0] Slice 0: 0-44 (45 rows), 0-1169 (1170 blocks).
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList0 for fn=2/poc=2:[h264_vaapi @ 0x5ca3d64205c0]   fn=0/poc=0  fn=1/poc=3[h264_vaapi @ 0x5ca3d64205c0] 
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList1 for fn=2/poc=2:  fn=1/poc=3[h264_vaapi @ 0x5ca3d64205c0]   fn=0/poc=0
+[h264_vaapi @ 0x5ca3d64205c0] Packed header buffer (3) is 0x10/0x5 (72 bits).
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (24) is 0x3.
+[h264_vaapi @ 0x5ca3d64205c0] Sync to pic 1/2 (input surface 0x24).
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer: 81333 bytes (status 01000021).
+[h264_vaapi @ 0x5ca3d64205c0] Output read for pic 1/2.
+[h264_vaapi @ 0x5ca3d64205c0] Output packet: pts 1, dts 1, size 81333 bytes.
+[h264_vaapi @ 0x5ca3d64205c0] Input frame: 405x720 (6).
+[h264_vaapi @ 0x5ca3d64205c0] Pick normal P-picture to encode next.
+[h264_vaapi @ 0x5ca3d64205c0] Issuing encode for pic 6/4 as type P.
+[h264_vaapi @ 0x5ca3d64205c0] L0 refers to[h264_vaapi @ 0x5ca3d64205c0]  3/1.
+[h264_vaapi @ 0x5ca3d64205c0] Input surface is 0x1f.
+[h264_vaapi @ 0x5ca3d64205c0] Recon surface is 0x28.
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer is 0x1.
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (23) is 0x3.
+[h264_vaapi @ 0x5ca3d64205c0] Slice 0: 0-44 (45 rows), 0-1169 (1170 blocks).
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList0 for fn=2/poc=6:  fn=1/poc=3[h264_vaapi @ 0x5ca3d64205c0]   fn=0/poc=0[h264_vaapi @ 0x5ca3d64205c0] 
+[h264_vaapi @ 0x5ca3d64205c0] Packed header buffer (3) is 0x5/0x10 (80 bits).
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (24) is 0x2.
+[h264_vaapi @ 0x5ca3d64205c0] Sync to pic 2/3 (input surface 0x23).
+[h264 @ 0x5ca3d654a5c0] Decoding VUI
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer: 80679 bytes (status 01000021).
+[h264_vaapi @ 0x5ca3d64205c0] Output read for pic 2/3.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output packet: pts 2, dts 2, size 80679 bytes.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Input frame: 405x720 (7).
+[h264_vaapi @ 0x5ca3d64205c0] Pick B-picture at depth 1 to encode next.
+[h264_vaapi @ 0x5ca3d64205c0] Issuing encode for pic 4/5 as type B.
+[h264_vaapi @ 0x5ca3d64205c0] L0 refers to[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0]  3/1Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] .
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] L1 refers to[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0]  6/4Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] .
+[h264_vaapi @ 0x5ca3d64205c0] Input surface is 0x21.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Recon surface is 0x29.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer is 0.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (23) is 0x2.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Slice 0: 0-44 (45 rows), 0-1169 (1170 blocks).
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList0 for fn=3/poc=4:[h264_vaapi @ 0x5ca3d64205c0]   fn=1/poc=3Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0]   fn=2/poc=6
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList1 for fn=3/poc=4:Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0]   fn=2/poc=6[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0]   fn=1/poc=3Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] 
+[h264_vaapi @ 0x5ca3d64205c0] Packed header buffer (3) is 0x10/0x5 (72 bits).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (24) is 0x3.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Sync to pic 6/4 (input surface 0x1f).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer: 130295 bytes (status 0100001d).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output read for pic 6/4.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output packet: pts 6, dts 3, size 130295 bytes.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Input frame: 405x720 (8).
+[h264_vaapi @ 0x5ca3d64205c0] Pick B-picture at depth 1 to encode next.
+[h264_vaapi @ 0x5ca3d64205c0] Issuing encode for pic 5/6 as type B.
+[h264_vaapi @ 0x5ca3d64205c0] L0 refers to[h264_vaapi @ 0x5ca3d64205c0]  3/1[h264_vaapi @ 0x5ca3d64205c0] .
+[h264_vaapi @ 0x5ca3d64205c0] L1 refers to 6/4[h264_vaapi @ 0x5ca3d64205c0] .
+[h264_vaapi @ 0x5ca3d64205c0] Input surface is 0x20.
+[AVHWFramesContext @ 0x73e73c201e80] Created surface 0x2a.
+[h264_vaapi @ 0x5ca3d64205c0] Recon surface is 0x2a.
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer is 0x1.
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (23) is 0x3.
+[h264_vaapi @ 0x5ca3d64205c0] Slice 0: 0-44 (45 rows), 0-1169 (1170 blocks).
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList0 for fn=3/poc=5:  fn=1/poc=3[h264_vaapi @ 0x5ca3d64205c0]   fn=2/poc=6Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] 
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList1 for fn=3/poc=5:  fn=2/poc=6[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0]   fn=1/poc=3
+[h264_vaapi @ 0x5ca3d64205c0] Packed header buffer (3) is 0x5/0x10 (72 bits).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (24) is 0x2.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Sync to pic 4/5 (input surface 0x21).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer: 79311 bytes (status 01000021).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output read for pic 4/5.
+[h264_vaapi @ 0x5ca3d64205c0] Output packet: pts 4, dts 4, size 79311 bytes.
+[h264_vaapi @ 0x5ca3d64205c0] Input frame: 405x720 (9).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Pick normal P-picture to encode next.
+[h264_vaapi @ 0x5ca3d64205c0] Issuing encode for pic 9/7 as type P.
+[h264_vaapi @ 0x5ca3d64205c0] L0 refers to 6/4[h264_vaapi @ 0x5ca3d64205c0] .
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Input surface is 0x1c.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Recon surface is 0x29.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer is 0.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (23) is 0x2.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Slice 0: 0-44 (45 rows), 0-1169 (1170 blocks).
+[h264 @ 0x5ca3d654a5c0] Decoding VUI
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList0 for fn=3/poc=9:  fn=2/poc=6  fn=1/poc=3[h264_vaapi @ 0x5ca3d64205c0] 
+[h264_vaapi @ 0x5ca3d64205c0] Packed header buffer (3) is 0x10/0x5 (80 bits).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (24) is 0x3.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Sync to pic 5/6 (input surface 0x20).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer: 79256 bytes (status 01000021).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output read for pic 5/6.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output packet: pts 5, dts 5, size 79256 bytes.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[vost#0:0/h264_vaapi @ 0x5ca3d6462d80] Encoder thread received EOF
+[h264_vaapi @ 0x5ca3d64205c0] Pick B-picture at depth 1 to encode next.
+[h264_vaapi @ 0x5ca3d64205c0] Issuing encode for pic 7/8 as type B.
+[h264_vaapi @ 0x5ca3d64205c0] L0 refers to[h264_vaapi @ 0x5ca3d64205c0]  6/4[h264_vaapi @ 0x5ca3d64205c0] .
+[h264_vaapi @ 0x5ca3d64205c0] L1 refers to 9/7[h264_vaapi @ 0x5ca3d64205c0] .
+[h264_vaapi @ 0x5ca3d64205c0] Input surface is 0x1e.
+[h264_vaapi @ 0x5ca3d64205c0] Recon surface is 0x2a.
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer is 0x1.
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (23) is 0x3.
+[h264_vaapi @ 0x5ca3d64205c0] Slice 0: 0-44 (45 rows), 0-1169 (1170 blocks).
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList0 for fn=4/poc=7:[h264_vaapi @ 0x5ca3d64205c0]   fn=2/poc=6[h264_vaapi @ 0x5ca3d64205c0]   fn=3/poc=9
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList1 for fn=4/poc=7:[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0]   fn=3/poc=9Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0]   fn=2/poc=6[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] 
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Packed header buffer (3) is 0x5/0x10 (72 bits).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (24) is 0x2.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Sync to pic 9/7 (input surface 0x1c).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer: 130549 bytes (status 0100001d).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output read for pic 9/7.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output packet: pts 9, dts 6, size 130549 bytes.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Pick B-picture at depth 1 to encode next.
+[h264_vaapi @ 0x5ca3d64205c0] Issuing encode for pic 8/9 as type B.
+[h264_vaapi @ 0x5ca3d64205c0] L0 refers to 6/4.
+[h264_vaapi @ 0x5ca3d64205c0] L1 refers to[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0]  9/7[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] .
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Input surface is 0x1d.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Recon surface is 0x26.
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer is 0.
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (23) is 0x2.
+[h264_vaapi @ 0x5ca3d64205c0] Slice 0: 0-44 (45 rows), 0-1169 (1170 blocks).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList0 for fn=4/poc=8:Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0]   fn=2/poc=6  fn=3/poc=9Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] 
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Default RefPicList1 for fn=4/poc=8:Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0]   fn=3/poc=9[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0]   fn=2/poc=6[h264_vaapi @ 0x5ca3d64205c0] 
+[h264_vaapi @ 0x5ca3d64205c0] Packed header buffer (3) is 0x10/0x5 (72 bits).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Param buffer (24) is 0x3.
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d641d200] EOF while reading input
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d641d200] Terminating thread with return code 0 (success)
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Sync to pic 7/8 (input surface 0x1e).
+[mp4 @ 0x5ca3d6462380] Delay between the first packet and last packet in the muxing queue is 10016000 > 10000000: forcing output
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer: 78808 bytes (status 01000021).
+[h264_vaapi @ 0x5ca3d64205c0] Output read for pic 7/8.
+[h264_vaapi @ 0x5ca3d64205c0] Output packet: pts 7, dts 7, size 78808 bytes.
+[h264_vaapi @ 0x5ca3d64205c0] Sync to pic 8/9 (input surface 0x1d).
+[h264_vaapi @ 0x5ca3d64205c0] Output buffer: 78610 bytes (status 01000021).
+[h264_vaapi @ 0x5ca3d64205c0] Output read for pic 8/9.
+[h264_vaapi @ 0x5ca3d64205c0] Output packet: pts 8, dts 8, size 78610 bytes.
+[vost#0:0/h264_vaapi @ 0x5ca3d6462d80] Terminating thread with return code 0 (success)
+[out#0/mp4 @ 0x5ca3d654f9c0] All streams finished
+[out#0/mp4 @ 0x5ca3d654f9c0] Terminating thread with return code 0 (success)
+[AVIOContext @ 0x5ca3d6426080] Statistics: 1281277 bytes written, 2 seeks, 8 writeouts
+[out#0/mp4 @ 0x5ca3d654f9c0] Output file #0 (/home/trinitronx/src/pub/vaapi-tests/transpose_vaapi/out.mp4):
+[out#0/mp4 @ 0x5ca3d654f9c0]   Output stream #0:0 (video): 10 frames encoded; 10 packets muxed (1050845 bytes); 
+[out#0/mp4 @ 0x5ca3d654f9c0]   Output stream #0:1 (audio): 596 packets muxed (228864 bytes); 
+[out#0/mp4 @ 0x5ca3d654f9c0]   Total: 606 packets (1279709 bytes) muxed
+[out#0/mp4 @ 0x5ca3d654f9c0] video:1026KiB audio:224KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.122215%
+frame=   10 fps=0.0 q=-0.0 Lsize=    1251KiB time=00:00:00.36 bitrate=28472.7kbits/s speed=10.1x    
+[h264_vaapi @ 0x5ca3d64205c0] Freed output buffer 0
+[h264_vaapi @ 0x5ca3d64205c0] Freed output buffer 0x1
+[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d641d200] Input file #0 (/home/trinitronx/src/pub/vaapi-tests/transpose_vaapi/whitenoise-test-input-720x405.amd0.h264.mp4):
+[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d641d200]   Input stream #0:0 (video): 30 packets read (4287777 bytes); 20 frames decoded; 0 decode errors; 
+[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d641d200]   Input stream #0:1 (audio): 596 packets read (228864 bytes); 
+[in#0/mov,mp4,m4a,3gp,3g2,mj2 @ 0x5ca3d641d200]   Total: 626 packets (4516641 bytes) demuxed
+[AVIOContext @ 0x5ca3d63fad40] Statistics: 67575984 bytes read, 2 seeks
+Conversion failed!
