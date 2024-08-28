@@ -29,7 +29,7 @@ ffmpeg -report -nostdin -v debug \
   -hwaccel vaapi -hwaccel_output_format vaapi -hwaccel_device ${hw_dev_name} \
   -i $input_testfile \
     -map 0:0 -c:v h264_vaapi -global_quality 25 -profile:v:0 main \
-    -vf 'format=nv12|vaapi,hwupload,transpose_vaapi=clock:extra_hw_frames=10' \
+    -vf 'format=nv12|vaapi,hwupload,transpose_vaapi=clock:extra_hw_frames=9' \
     -map 0:a -c:a copy \
   -f mp4 -y  ${SCRIPT_DIR}/out.mp4
 
